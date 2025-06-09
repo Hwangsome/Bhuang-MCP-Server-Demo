@@ -1,0 +1,21 @@
+# Using spring-ai-starter-mcp-server
+spring:
+  application:
+    name: Bhuang-MCP-Server-demo
+  ai:
+    mcp:
+      server:
+        name: ${spring.application.name}
+        version: 1.0.0
+        type: SYNC
+  main:
+    banner-mode: off
+    web-application-type: none
+
+
+
+logging:
+    pattern:
+      console:
+    file:
+      name: data/log/${spring.application.name}.log
