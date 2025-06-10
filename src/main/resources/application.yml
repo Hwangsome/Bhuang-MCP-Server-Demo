@@ -12,10 +12,47 @@ spring:
     banner-mode: off
     web-application-type: none
 
+# CSDN API 配置
+csdn:
+  api:
+    categories: ${CSDN_CATEGORIES:springboot}
+    cookie: ${CSDN_COOKIE:uuid_tt_dd=10_31079443030-1729242043889-293345; fid=20_81146319811-1729242047052-380713; UserName=weixin_54726354; UserInfo=b781988e08134d86bae37186a50e60bb; UserToken=b781988e08134d86bae37186a50e60bb; UserNick=weixin_54726354; AU=C0A; UN=weixin_54726354; BT=1745287695903; p_uid=U010000; csdn_newcert_weixin_54726354=1; dc_sid=51685bd30bd7837c61f33d39a0ce1df4; c_segment=1; Hm_lvt_6bcd52f51e9b3dce32bec4a3997715ac=1746690222; HMACCOUNT=A3B81F8B6438565A; FCNEC=%5B%5B%22AKsRol9ojkfWEwDsbJlwPaDf8qXtgODkfXWng0Y1QgObK3betYsMPcjKH2cUksf0aqxRya4uPTPSDv_lz4Hhpv34DGYx-raTxcwHVRBPm4lW3OVMCico1izUwpPp7krNRcTYipEhq6sX9XZv_r0pP1s_6eWDEFkXmQ%3D%3D%22%5D%5D; c_adb=1; dc_session_id=10_1749025448235.878197; _clck=1xgbyfl%7C2%7Cfwh%7C0%7C1954; _gid=GA1.2.510293052.1749025453; c_first_page=https%3A//blog.csdn.net/qq_42961150/article/details/122545929; _ga=GA1.1.254017774.1746690230; _ga_7W1N0GEY1P=GS2.1.s1749025452$o4$g1$t1749026038$j60$l0$h0; c_first_ref=default; c_dsid=11_1749026273764.655104; creativeSetApiNew=%7B%22toolbarImg%22%3A%22https%3A//img-home.csdnimg.cn/images/20231011044944.png%22%2C%22publishSuccessImg%22%3A%22https%3A//img-home.csdnimg.cn/images/20240229024608.png%22%2C%22articleNum%22%3A0%2C%22type%22%3A0%2C%22oldUser%22%3Afalse%2C%22useSeven%22%3Atrue%2C%22oldFullVersion%22%3Afalse%2C%22userName%22%3A%22weixin_54726354%22%7D; _clsk=1ak9yaz%7C1749026279694%7C3%7C0%7Cl.clarity.ms%2Fcollect; c_pref=https%3A//mpbeta.csdn.net/mp_blog/creation/success/148430024; c_ref=https%3A//mpbeta.csdn.net/; c_page_id=default; log_Id_pv=8; Hm_lpvt_6bcd52f51e9b3dce32bec4a3997715ac=1749026519; log_Id_view=175; log_Id_click=9; dc_tos=sxbpii}
 
+# Confluence API 配置
+confluence:
+  # Confluence 服务器 URL（必填）
+  # 示例: https://your-domain.atlassian.net (Cloud) 或 http://your-server:8090 (Server)
+  url: ${CONFLUENCE_URL:}
+  
+  # Cloud 版本认证（用于 atlassian.net）
+  username: ${CONFLUENCE_USERNAME:}
+  api-token: ${CONFLUENCE_API_TOKEN:}
+  
+  # Server/Data Center 版本认证（用于自托管服务器）
+  personal-token: ${CONFLUENCE_PERSONAL_TOKEN:}
+  
+  # 默认空间 KEY（可选）
+  default-space-key: ${CONFLUENCE_DEFAULT_SPACE:}
+  
+  # SSL 验证开关（默认 true）
+  ssl-verify: ${CONFLUENCE_SSL_VERIFY:true}
+  
+  # 空间过滤器，逗号分隔（可选）
+  spaces-filter: ${CONFLUENCE_SPACES_FILTER:}
+  
+  # 只读模式（默认 false）
+  read-only-mode: ${CONFLUENCE_READ_ONLY:false}
 
 logging:
     pattern:
       console:
     file:
       name: data/log/${spring.application.name}.log
+
+server:
+  port: 8101
+  servlet:
+    encoding:
+      charset: UTF-8
+      force: true
+      enabled: true
